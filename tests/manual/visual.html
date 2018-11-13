@@ -161,7 +161,7 @@
 
         el.className = '';
         transform.rz = 1;
-        transform.angle = initAngle + ev.rotation;
+        transform.angle = initAngle + ev.rotationDelta;
         requestElementUpdate();
         logEvent(ev.type);
     }
