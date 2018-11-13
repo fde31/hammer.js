@@ -14,6 +14,7 @@ export default function simpleCloneInputData(input) {
   let i = 0;
   while (i < input.pointers.length) {
     pointers[i] = {
+      identifier: input.pointers[i].identifier,
       clientX: round(input.pointers[i].clientX),
       clientY: round(input.pointers[i].clientY)
     };
