@@ -56,6 +56,14 @@ export default function computeInputData(manager, input) {
   input.scale = firstMultiple ? getScale(firstMultiple.pointers, pointers) : 1;
   input.rotation = firstMultiple ? getRotation(firstMultiple.pointers, pointers) : 0;
 
+  if (session.initialRotation) {
+    input.rotationDelta = input.rotation - session.initialRotation;
+  } else {
+    session.initialRotation = input.rotation;
+    input.rotationDelta = 0;
+  }
+  session.lastValue = input.rotation;
+
   input.maxPointers = !session.prevInput ? input.pointers.length : ((input.pointers.length >
   session.prevInput.maxPointers) ? input.pointers.length : session.prevInput.maxPointers);
 
